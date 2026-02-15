@@ -31,9 +31,11 @@ app.get('/api/arrival', async (req, res) => {
             } else {
                 data = await getBusArrivalData(stationId);
             }
-            // Filter for Bus #30. Note: GBIS API might return routeId, so we might need route mapping.
-            // For now, let's assume we filter by routine name or check all routes.
-            const bus30 = data.find(bus => bus.routeName === BUS_ROUTE_NAME || bus.routeId === process.env.BUS_ROUTE_ID);
+            // Filter for Bus #30
+            const bus30 = data.find(bus =>
+                String(bus.routeName) === String(BUS_ROUTE_NAME) ||
+                String(bus.routeId) === String(process.env.BUS_ROUTE_ID)
+            );
 
             if (bus30) {
                 const predictTime = parseInt(bus30.predictTime1, 10);
