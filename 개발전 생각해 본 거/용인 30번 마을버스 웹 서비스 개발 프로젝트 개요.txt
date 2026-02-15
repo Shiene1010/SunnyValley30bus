@@ -1,0 +1,26 @@
+## 용인 30번 마을버스 웹 서비스 개발 프로젝트 개요
+용인시 기흥구 지곡동 써니밸리에서 출발하는 30번 마을버스 전용 웹 서비스. 경기버스 GBIS API 활용해 실시간 도착·위치·시간표 제공. 타겟: 지역 주민, iOS 앱 백엔드 전환 가능.[3][4]
+
+## 기술 스택
+| 카테고리 | 선택 |
+|----------|------|
+| 백엔드 | Node.js/Express 또는 Vapor (Swift 서버) |
+| API | GBIS 공공데이터 (버스도착정보, 위치정보, 노선조회) |
+| 프론트 | SwiftUI WebView 또는 React (PWA) |
+| 데이터 | XML 파싱 (SWXMLHash), Redis 캐싱 |
+| 호스팅 | Vercel/Netlify (무료) 또는 AWS [5] |
+
+## 개발 단계
+1. **준비 (완료, 1일)**: 공공데이터포털 개발계정 신청, 인증키 발급 (`ws.gbis.go.kr/ws/rest/busarriveService/station`).[6]
+2. **API 검증 (1일)**: Playground/Postman으로 엔드포인트 테스트 (arsId=써니밸리, busRouteNm=30). 야간 비운행 응답 확인 ("arrmsg1" 파싱).[7]
+3. **백엔드 구축 (3일)**: Express 서버 생성, /api/30arrive 엔드포인트 (XML→JSON 변환, 30번 필터).[8]
+4. **웹 프론트 (2일)**: React 페이지 – 실시간 카운트다운, 지도 (Leaflet), 알림 탭.
+5. **배포·테스트 (1일)**: Vercel 배포, 모바일 PWA, 아침 실제 데이터 검증.
+총 1주 완성.[9]
+
+웹 서비스 완성 후 iOS 앱으로 확장. 배포 URL 공유 시 피드백 드림![11]
+
+Sources
+[1] 경기도_버스도착정보 조회 https://www.data.go.kr/data/15030346/openapi.do
+[10] 경기버스정보 http://www.gbis.go.kr
+[12] App-Design-Workbook.pdf https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/25241309/301eba3b-9326-4010-ad69-f070612729d6/App-Design-Workbook.pdf

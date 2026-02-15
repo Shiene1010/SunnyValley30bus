@@ -1,0 +1,9 @@
+공공데이터포털 개발계정 신청, 인증키 발급 (`ws.gbis.go.kr/ws/rest/busarriveService/station`)
+경기버스앱 방금전 출발한 시각표
+오늘 도착한 시각과 도착할 시간표
+[승인] 경기도_버스도착정보 조회
+계정 개발 신청일 2026-02-15 만료예정일 2028-02-15
+
+데이터포맷	JSON+XML
+End Point	https://apis.data.go.kr/6410000/busarrivalservice/v2
+일반 인증키	7c4410f33c9cc7a7e0869c595c37c26246f416d7e9bfe81881502983ed6132e5

@@ -1,0 +1,189 @@
+:root {
+  --bg-color: hsl(220, 20%, 5%);
+  --card-bg: hsla(220, 20%, 15%, 0.6);
+  --accent-blue: hsl(200, 100%, 60%);
+  --accent-cyan: hsl(180, 100%, 50%);
+  --accent-orange: hsl(30, 100%, 60%);
+  --accent-red: hsl(0, 100%, 60%);
+  --accent-green: hsl(140, 100%, 60%);
+  --text-primary: hsl(0, 0%, 95%);
+  --text-secondary: hsl(0, 0%, 75%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  max-width: 500px;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  letter-spacing: -1px;
+  background: linear-gradient(to right, var(--text-primary), var(--accent-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.bus-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid hsla(0, 0%, 100%, 0.1);
+  border-radius: 24px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.bus-card:hover {
+  transform: scale(1.02);
+}
+
+.bus-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, hsla(200, 100%, 60%, 0.1) 0%, transparent 70%);
+  z-index: -1;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.station-info h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.station-info span {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.bus-badge {
+  background: var(--accent-blue);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.eta-container {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.eta-value {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--accent-cyan);
+}
+
+.eta-unit {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.leave-alert {
+  background: hsla(0, 0%, 100%, 0.05);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.leave-alert.SAFE { border-left: 4px solid var(--accent-green); }
+.leave-alert.WARNING { border-left: 4px solid var(--accent-orange); }
+.leave-alert.URGENT { border-left: 4px solid var(--accent-red); }
+
+.leave-alert-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.leave-timer {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.SAFE .leave-timer { color: var(--accent-green); }
+.WARNING .leave-timer { color: var(--accent-orange); }
+.URGENT .leave-timer { color: var(--accent-red); }
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.feedback-btn {
+  background: transparent;
+  border: 1px solid hsla(0, 0%, 100%, 0.2);
+  color: var(--text-secondary);
+  padding: 8px 20px;
+  border-radius: 100px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.feedback-btn:hover {
+  background: hsla(0, 0%, 100%, 0.05);
+  border-color: var(--text-primary);
+}
