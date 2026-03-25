@@ -13,7 +13,7 @@ app.use(express.json());
 const BUS_ROUTE_NAME = '30';
 const WALKING_TIMES = {
     '228002215': 5, // Hyundai Morningside 1st
-    '228003292': 10 // Bora Shinchang Apt
+    '228003292': 4 // Bora Shinchang Apt (단지 관통 지름길 반영)
 };
 
 const MOCK_DATA = {
